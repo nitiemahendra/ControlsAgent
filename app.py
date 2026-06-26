@@ -148,9 +148,9 @@ st.set_page_config(
 st.title("🔍 Auditable Internal-Controls Agent")
 st.caption("Full-population AP ledger testing · Append-only decision ledger · Workpaper-ready findings")
 
-# ── Run Audit button ───────────────────────────────────────────────────────────
+# ── Run Audit / Reset buttons ──────────────────────────────────────────────────
 
-col_btn, col_msg = st.columns([1, 5])
+col_btn, col_reset, col_msg = st.columns([1, 1, 4])
 with col_btn:
     if st.button("▶  Run Audit", type="primary", use_container_width=True):
         with st.spinner("Running agent on 2,760 transactions…"):
@@ -160,6 +160,13 @@ with col_btn:
             f"Run `{result.run_id[:8]}` · **{result.status}** · "
             f"{result.finding_count} findings · ${result.total_cost_usd:.4f}"
         )
+        st.rerun()
+
+with col_reset:
+    if st.button("🗑  Reset", use_container_width=True):
+        Path(DB_PATH).unlink(missing_ok=True)
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
         st.rerun()
 
 # ── Sidebar ────────────────────────────────────────────────────────────────────
