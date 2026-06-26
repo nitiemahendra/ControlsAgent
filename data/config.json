@@ -1,0 +1,10 @@
+{
+  "role_limits": {
+    "junior": 5000,
+    "senior": 25000,
+    "manager": 100000,
+    "director": 500000
+  },
+  "approval_threshold": 10000,
+  "materiality_floor": 5000
+}

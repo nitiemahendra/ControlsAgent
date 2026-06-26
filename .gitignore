@@ -1,0 +1,25 @@
+# Environment — NEVER commit API keys
+.env
+
+# Demo script — internal only
+DEMO_SCRIPT.md
+
+# Generated databases
+*.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.Python
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
